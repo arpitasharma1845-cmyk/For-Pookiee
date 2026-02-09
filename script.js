@@ -40,3 +40,4 @@ document.addEventListener('click', (e) => {
 
   setTimeout(() => heart.remove(), 1000);
 });
+
