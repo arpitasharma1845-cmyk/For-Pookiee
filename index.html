@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Valentine ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+</head>
+<body>
+
+<audio id="bg-music" autoplay loop>
+  <source src="love.mpeg" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <div class="floating" style="--rand:0.1">❤️</div>
+<div class="floating" style="--rand:0.6">🎈</div>
+<div class="floating" style="--rand:0.3">🌹</div>
+  
+<section class="card" data-aos="fade-up" data-aos-duration="1500">
+  <h1>🌹 Rose Day</h1>
+  <img src="us1.jpeg" alt="MY VALENTINE">
+  <p>
+    Just like this rose POOKIEE,<br>
+    my love for you is soft, pure,<br>
+    and forever blooming ❤️
+  </p>
+</section>
+
+<section class="card" data-aos="zoom-in">
+  <h1>🧸 Teddy Day</h1>
+  <p>
+    Whenever you miss me,<br>
+    imagine this teddy hugging you tightly 🤍
+  </p>
+  <img src="me.jpeg" alt="teddy">
+</section>
+
+<section class="card" data-aos="fade-right">
+  <h1>💍 Propose Day</h1>
+  <p>
+    I don’t need a perfect moment,<br>
+    I just need YOU 💖
+  </p>
+  <img src="us8.jpeg" alt="propose">
+</section>
+
+<section class="card" data-aos="fade-left">
+  <h1>💋 Kiss Day</h1>
+  <p>
+    A kiss is my soul touching yours 😘
+  </p>
+  <img src="us3.jpeg" alt="kiss">
+</section>
+
+<section class="card" data-aos="flip-up">
+  <h1>🤗 Hug Day</h1>
+  <p>
+    Whenever the world feels heavy,<br>
+    come here — I’ll hold you forever 🤍
+  </p>
+  <img src="us2.jpeg" alt="hug">
+</section>
+
+<section class="card final" data-aos="zoom-in">
+  <h1>❤️ Valentine’s Day ❤️</h1>
+  <section class="card final parallax" style="background-image:url('us8.jpeg')">
+<div>
+  <p>
+    You are not just my Valentine,<br>
+    you are my forever 💞
+  </p></div>
+</section>
+
+</div>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  // INIT AOS
+  AOS.init({
+    duration: 1200,
+    easing: 'ease-in-out',
+    once: false,
+    offset: 120
+  });
+
+  // HEART POP ON CLICK
+  document.addEventListener('click', (e) => {
+    const bg = document.getElementById('bg-music');
+    if (bg) bg.play().catch(() => {});
+
+    const heart = document.createElement('div');
+    heart.innerHTML = '❤️';
+    heart.style.cssText = `
+      position:absolute;
+      left:${e.pageX}px;
+      top:${e.pageY}px;
+      font-size:24px;
+      pointer-events:none;
+    `;
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1000);
+  });
+</script>
+<script>
+const valentine = document.querySelector('.final');
+
+const obs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    confetti({
+      particleCount: 150,
+      spread: 90,
+      origin: { y: 0.6 }
+    });
+    obs.disconnect();
+  }
+});
+
+obs.observe(valentine);
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<button class="love-btn">💌 Open My Heart</button>
+<script>
+document.querySelector('.love-btn').onclick = () => {
+  alert("You are my forever ❤️");
+};
+</script>
+
+</body>
+</html>
