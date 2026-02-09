@@ -9,12 +9,19 @@
 
 </head>
 <body>
+  <div class="smoke"></div>
+
+<div class="candle-overlay"></div>
 
 <audio id="bg-music" autoplay loop>
   <source src="love.mpeg" type="audio/mpeg">
 </audio>
 
 <div class="container">
+  <div class="smoke s1"></div>
+
+
+
   <div class="floating" style="--rand:0.1">❤️</div>
 <div class="floating" style="--rand:0.6">🎈</div>
 <div class="floating" style="--rand:0.3">🌹</div>
@@ -23,8 +30,8 @@
   <h1>🌹 Rose Day</h1>
   <img src="us1.jpeg" alt="MY VALENTINE">
   <p>
-    Just like this rose POOKIEE,<br>
-    my love for you is soft, pure,<br>
+    Just like the Roses POOKIEE,<br>
+    My love for you is soft, pure,<br>
     and forever blooming ❤️
   </p>
 </section>
@@ -40,6 +47,9 @@
 
 <section class="card" data-aos="fade-right">
   <h1>💍 Propose Day</h1>
+  
+<div class="smoke s2"></div>
+
   <p>
     I don’t need a perfect moment,<br>
     I just need YOU 💖
@@ -50,7 +60,7 @@
 <section class="card" data-aos="fade-left">
   <h1>💋 Kiss Day</h1>
   <p>
-    A kiss is my soul touching yours 😘
+    A kiss is my soul touching yours💋, I really love you my Pookiee😘
   </p>
   <img src="us3.jpeg" alt="kiss">
 </section>
@@ -66,7 +76,8 @@
 
 <section class="card final" data-aos="zoom-in">
   <h1>❤️ Valentine’s Day ❤️</h1>
-  <section class="card final parallax" style="background-image:url('us8.jpeg')">
+  <img src ="us5.jpeg" alt="valentine">
+  <!-- <section class="card final parallax" style="background-image:url('us8.jpeg')"> -->
 <div>
   <p>
     You are not just my Valentine,<br>
@@ -75,6 +86,15 @@
 </section>
 
 </div>
+<div class="love-popup" id="lovePopup">
+  <p>
+    I choose you.<br>
+    Today. Tomorrow.<br>
+    Always ❤️
+  </p>
+  <span class="close">×</span>
+</div>
+
 <!-- AOS JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -126,12 +146,50 @@ obs.observe(valentine);
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-<button class="love-btn">💌 Open My Heart</button>
+
 <script>
 document.querySelector('.love-btn').onclick = () => {
   alert("You are my forever ❤️");
 };
 </script>
 
+<script>
+function spawnEmoji(emoji) {
+  const el = document.createElement("div");
+  el.innerText = emoji;
+  el.style.position = "fixed";
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.top = "100vh";
+  el.style.fontSize = "24px";
+  el.style.animation = "floatUp 4s linear";
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 3000);
+}
+
+window.addEventListener("scroll", () => {
+  spawnEmoji("🦋");
+  spawnEmoji("❤️");
+});
+
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.querySelector(".love-btn");
+  const popup = document.getElementById("lovePopup");
+  const close = document.querySelector(".love-popup .close");
+
+  btn.onclick = () => popup.style.display = "flex";
+  close.onclick = () => popup.style.display = "none";
+});
+</script>
+
+
+
 </body>
+<button class="love-btn">
+  Click for Surprise 💝
+</button>
+
 </html>
